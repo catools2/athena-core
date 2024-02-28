@@ -1,0 +1,37 @@
+package org.catools.athena.git.model;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+import lombok.*;
+import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.time.Instant;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Accessors(chain = true)
+public class GitRepositoryDto implements Serializable {
+
+  private Long id;
+
+  @NotBlank(message = "The git repository name must be provided.")
+  @Size(max = 200, message = "The git repository name can be at most 200 character.")
+  private String name;
+
+  @NotBlank(message = "The git repository url must be provided.")
+  @Size(max = 300, message = "The git repository url can be at most 300 character.")
+  private String url;
+
+  @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", timezone = "UTC")
+  private Instant lastSync;
+
+  public GitRepositoryDto(String name, String url, Instant lastSync) {
+    this.name = name;
+    this.url = url;
+    this.lastSync = lastSync;
+  }
+
+}
