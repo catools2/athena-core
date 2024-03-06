@@ -40,6 +40,9 @@ public class PipelineDto {
   @NotNull(message = "The pipeline environment must be provided.")
   private String environment;
 
+  @NotNull(message = "The pipeline version must be provided.")
+  private String version;
+
   private Set<MetadataDto> metadata = new HashSet<>();
 
 }

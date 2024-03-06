@@ -41,7 +41,7 @@ jobs:
 
       - name: Build Packages
         run: |
-          mvn install -s $GITHUB_WORKSPACE/settings.xml -fae -U -B -e -V -P release -DskipTests "-Dlogger.console.log.level=INFO"
+          mvn install -s $GITHUB_WORKSPACE/settings.xml -fae -U -B -e -V -P release "-Dlogger.console.log.level=INFO"
 
       - name: Deploying to GitHub
         if: ${{ github.ref_type == 'tag' }}

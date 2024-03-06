@@ -28,8 +28,8 @@ public class SyncInfoDto implements Serializable {
   @Size(max = 50, message = "The sync info action can be at most 300 character.")
   private String action;
 
-  @NotBlank(message = "The sync info name must be provided.")
-  @Size(max = 100, message = "The sync info name can be at most 300 character.")
+  @NotBlank(message = "The sync info component must be provided.")
+  @Size(max = 100, message = "The sync info component can be at most 300 character.")
   private String component;
 
   @NotNull(message = "The sync info start date/time must be provided.")
