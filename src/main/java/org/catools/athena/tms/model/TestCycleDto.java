@@ -11,6 +11,7 @@ import java.io.Serializable;
 import java.time.Instant;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 
 @Data
@@ -22,6 +23,9 @@ public class TestCycleDto implements Serializable {
   @NotBlank(message = "The cycle name must be provided.")
   @Size(max = 300, message = "The cycle name can be at most 300 character.")
   private String code;
+
+  @NotNull(message = "The cycle hash must be provided.")
+  private Integer uniqueHash;
 
   @NotNull(message = "The cycle start date/time must be provided.")
   private String name;
