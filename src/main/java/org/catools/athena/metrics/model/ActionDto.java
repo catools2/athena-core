@@ -25,7 +25,6 @@ public class ActionDto {
   @NotBlank(message = "The action command must be provided.")
   private String command;
 
-  @NotBlank(message = "The action parameter must be provided.")
   private String parameter;
 
 }

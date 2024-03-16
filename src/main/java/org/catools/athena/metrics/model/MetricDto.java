@@ -15,10 +15,10 @@ public class MetricDto implements Serializable {
 
   private Long id;
 
-  @NotBlank(message = "The performance metric duration time must be provided.")
+  @NotNull(message = "The performance metric duration time must be provided.")
   private Long duration;
 
-  @NotBlank(message = "The performance metric action time must be provided.")
+  @NotNull(message = "The performance metric action time must be provided.")
   @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", timezone = "UTC")
   private Instant actionTime;
 

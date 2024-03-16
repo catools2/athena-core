@@ -23,8 +23,9 @@ public class TestCycleDto implements Serializable {
   @Size(max = 300, message = "The cycle name can be at most 300 character.")
   private String code;
 
-  @NotNull(message = "The cycle hash must be provided.")
-  private Integer uniqueHash;
+  @Size(min=64, max = 64, message = "The cycle sha256 should be 64 character.")
+  @NotNull(message = "The cycle sha256 must be provided.")
+  private String sha256;
 
   @NotNull(message = "The cycle start date/time must be provided.")
   private String name;
