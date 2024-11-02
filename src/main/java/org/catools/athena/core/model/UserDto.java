@@ -1,9 +1,11 @@
 package org.catools.athena.core.model;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 import lombok.experimental.Accessors;
+import org.catools.athena.common.markers.IdRequired;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -15,6 +17,7 @@ import java.util.Set;
 @Accessors(chain = true)
 public class UserDto implements Serializable {
 
+  @NotNull(groups = IdRequired.class, message = "The id must be provided.")
   private Long id;
 
   @NotBlank(message = "The username must be provided.")

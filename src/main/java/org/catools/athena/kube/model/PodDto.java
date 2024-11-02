@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
+import org.catools.athena.common.markers.IdRequired;
 import org.catools.athena.core.model.MetadataDto;
 
 import java.time.Instant;
@@ -16,6 +17,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Accessors(chain = true)
 public class PodDto {
+  @NotNull(groups = IdRequired.class, message = "The id must be provided.")
   private Long id;
 
   @Size(max = 36, message = "The pod uid can be at most 36 character.")

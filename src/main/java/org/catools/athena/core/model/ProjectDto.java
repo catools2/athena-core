@@ -1,9 +1,11 @@
 package org.catools.athena.core.model;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 import lombok.experimental.Accessors;
+import org.catools.athena.common.markers.IdRequired;
 
 @Data
 @NoArgsConstructor
@@ -11,7 +13,9 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public class ProjectDto {
 
+  @NotNull(groups = IdRequired.class, message = "The id must be provided.")
   private Long id;
+
   @NotBlank(message = "The project code must be provided.")
   @Size(max = 10, message = "The project code can be at most 10 character.")
   private String code;

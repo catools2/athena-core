@@ -7,6 +7,7 @@ import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
+import org.catools.athena.common.markers.IdRequired;
 import org.catools.athena.core.model.MetadataDto;
 
 import java.time.Instant;
@@ -18,6 +19,7 @@ import java.util.Set;
 @Accessors(chain = true)
 public class ContainerDto {
 
+  @NotNull(groups = IdRequired.class, message = "The id must be provided.")
   private Long id;
 
   @NotBlank(message = "The container type must be provided.")

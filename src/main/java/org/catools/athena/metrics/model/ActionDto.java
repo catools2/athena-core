@@ -1,13 +1,16 @@
 package org.catools.athena.metrics.model;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.catools.athena.common.markers.IdRequired;
 
 @Data
 @Accessors(chain = true)
 public class ActionDto {
 
+  @NotNull(groups = IdRequired.class, message = "The id must be provided.")
   private Long id;
 
   @NotBlank(message = "The action name must be provided.")

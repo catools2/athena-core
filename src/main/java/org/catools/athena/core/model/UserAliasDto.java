@@ -1,11 +1,13 @@
 package org.catools.athena.core.model;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
+import org.catools.athena.common.markers.IdRequired;
 
 import java.io.Serializable;
 
@@ -15,6 +17,7 @@ import java.io.Serializable;
 @Accessors(chain = true)
 public class UserAliasDto implements Serializable {
 
+  @NotNull(groups = IdRequired.class, message = "The id must be provided.")
   private Long id;
 
   @NotBlank(message = "The path metadata name must be provided.")

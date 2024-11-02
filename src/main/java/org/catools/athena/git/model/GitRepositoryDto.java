@@ -2,9 +2,11 @@ package org.catools.athena.git.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 import lombok.experimental.Accessors;
+import org.catools.athena.common.markers.IdRequired;
 
 import java.io.Serializable;
 import java.time.Instant;
@@ -15,6 +17,7 @@ import java.time.Instant;
 @Accessors(chain = true)
 public class GitRepositoryDto implements Serializable {
 
+  @NotNull(groups = IdRequired.class, message = "The id must be provided.")
   private Long id;
 
   @NotBlank(message = "The git repository name must be provided.")

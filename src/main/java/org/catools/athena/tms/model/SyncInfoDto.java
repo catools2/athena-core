@@ -4,12 +4,10 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.*;
 import lombok.*;
 import lombok.experimental.Accessors;
-import org.catools.athena.core.model.MetadataDto;
+import org.catools.athena.common.markers.IdRequired;
 
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.Set;
 
 
 @Data
@@ -18,6 +16,7 @@ import java.util.Set;
 @Accessors(chain = true)
 public class SyncInfoDto implements Serializable {
 
+  @NotNull(groups = IdRequired.class, message = "The id must be provided.")
   private Long id;
 
   @NotBlank(message = "The sync info project code must be provided.")

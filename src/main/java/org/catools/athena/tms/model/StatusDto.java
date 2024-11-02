@@ -1,9 +1,11 @@
 package org.catools.athena.tms.model;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 import lombok.experimental.Accessors;
+import org.catools.athena.common.markers.IdRequired;
 
 import java.io.Serializable;
 
@@ -14,6 +16,7 @@ import java.io.Serializable;
 @Accessors(chain = true)
 public class StatusDto implements Serializable {
 
+  @NotNull(groups = IdRequired.class, message = "The id must be provided.")
   private Long id;
 
   @NotBlank(message = "The item status code must be provided.")

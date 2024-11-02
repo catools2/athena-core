@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.catools.athena.common.markers.IdRequired;
 import org.catools.athena.core.model.MetadataDto;
 
 import java.io.Serializable;
@@ -19,6 +20,7 @@ import java.util.Set;
 @Accessors(chain = true)
 public class ApiPathDto implements Serializable {
 
+  @NotNull(groups = IdRequired.class, message = "The id must be provided.")
   private Long id;
 
   @NotNull(message = "The path api spec id must be provided.")

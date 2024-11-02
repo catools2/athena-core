@@ -1,8 +1,10 @@
 package org.catools.athena.core.model;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import lombok.experimental.Accessors;
+import org.catools.athena.common.markers.IdRequired;
 
 @Data
 @NoArgsConstructor
@@ -10,6 +12,7 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public class MetadataDto implements NameValuePair {
 
+  @NotNull(groups = IdRequired.class, message = "The id must be provided.")
   private Long id;
 
   @NotBlank(message = "The metadata name must be provided.")

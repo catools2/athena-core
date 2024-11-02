@@ -2,10 +2,12 @@ package org.catools.athena.kube.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
+import org.catools.athena.common.markers.IdRequired;
 
 import java.time.Instant;
 
@@ -15,6 +17,7 @@ import java.time.Instant;
 @Accessors(chain = true)
 public class ContainerStateDto {
 
+  @NotNull(groups = IdRequired.class, message = "The id must be provided.")
   private Long id;
 
   @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", timezone = "UTC")

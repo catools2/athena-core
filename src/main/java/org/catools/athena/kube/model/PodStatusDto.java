@@ -1,14 +1,17 @@
 package org.catools.athena.kube.model;
 
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 import lombok.experimental.Accessors;
+import org.catools.athena.common.markers.IdRequired;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Accessors(chain = true)
 public class PodStatusDto {
+  @NotNull(groups = IdRequired.class, message = "The id must be provided.")
   private Long id;
 
   @Size(max = 200, message = "The pod status name can be at most 200 character.")

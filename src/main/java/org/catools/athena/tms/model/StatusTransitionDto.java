@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import lombok.experimental.Accessors;
+import org.catools.athena.common.markers.IdRequired;
 
 import java.io.Serializable;
 import java.time.Instant;
@@ -17,6 +18,7 @@ import java.time.Instant;
 @Accessors(chain = true)
 public class StatusTransitionDto implements Serializable {
 
+  @NotNull(groups = IdRequired.class, message = "The id must be provided.")
   private Long id;
 
   @NotNull(message = "The status transition from status must be provided.")
